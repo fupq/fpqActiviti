@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+   <!-- 配置流程引擎实例化对象processEngineConfiguration注入spring容器中 -->
+  <bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+ 
+    <property name="jdbcUrl" value="jdbc:mysql://192.168.159.131:3306/fpqActiviti?useSSL=false" />
+    <property name="jdbcDriver" value="com.mysql.jdbc.Driver" />
+    <property name="jdbcUsername" value="root" />
+    <property name="jdbcPassword" value="Carson@20131111" />
+    <!-- 配置模式  true 自动创建和更新表 -->
+    <property name="databaseSchemaUpdate" value="true" />
+  </bean>
+ 
+</beans>

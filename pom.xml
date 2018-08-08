@@ -5,4 +5,38 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>activitiStudy</name>
   <description>activiti研究练习程序</description>
+  <dependencies>
+     <dependency>
+        <groupId>org.activiti</groupId>
+        <artifactId>activiti-engine</artifactId>
+        <version>5.19.0.2</version>
+    </dependency>
+     
+    <dependency>
+        <groupId>org.activiti</groupId>
+        <artifactId>activiti-spring</artifactId>
+        <version>5.19.0.2</version>
+    </dependency>
+     
+    <dependency>
+        <groupId>org.activiti</groupId>
+        <artifactId>activiti-bpmn-model</artifactId>
+        <version>5.19.0.2</version>
+    </dependency>
+     
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.46</version>
+    </dependency>
+     
+     <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-simple</artifactId>
+	    <version>1.7.25</version>
+	    <scope>test</scope>
+	</dependency>
+     
+	</dependencies>
 </project>

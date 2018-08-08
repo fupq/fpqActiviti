@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
+  <process id="myProcess" name="My process" isExecutable="true">
+    <startEvent id="startevent_leave" name="Start"></startEvent>
+    <endEvent id="endevent_leave" name="End"></endEvent>
+    <userTask id="usertask_apply" name="请假" activiti:assignee="employee"></userTask>
+    <userTask id="usertask_approve" name="审批" activiti:assignee="employer"></userTask>
+    <sequenceFlow id="flow1" sourceRef="startevent_leave" targetRef="usertask_apply"></sequenceFlow>
+    <sequenceFlow id="flow2" sourceRef="usertask_apply" targetRef="usertask_approve"></sequenceFlow>
+    <sequenceFlow id="flow3" sourceRef="usertask_approve" targetRef="endevent_leave"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_myProcess">
+    <bpmndi:BPMNPlane bpmnElement="myProcess" id="BPMNPlane_myProcess">
+      <bpmndi:BPMNShape bpmnElement="startevent_leave" id="BPMNShape_startevent_leave">
+        <omgdc:Bounds height="35.0" width="35.0" x="260.0" y="30.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent_leave" id="BPMNShape_endevent_leave">
+        <omgdc:Bounds height="35.0" width="35.0" x="260.0" y="290.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask_apply" id="BPMNShape_usertask_apply">
+        <omgdc:Bounds height="55.0" width="105.0" x="225.0" y="110.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask_approve" id="BPMNShape_usertask_approve">
+        <omgdc:Bounds height="55.0" width="105.0" x="225.0" y="200.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="277.0" y="65.0"></omgdi:waypoint>
+        <omgdi:waypoint x="277.0" y="110.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="277.0" y="165.0"></omgdi:waypoint>
+        <omgdi:waypoint x="277.0" y="200.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="277.0" y="255.0"></omgdi:waypoint>
+        <omgdi:waypoint x="277.0" y="290.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

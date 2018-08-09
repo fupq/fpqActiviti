@@ -53,3 +53,6 @@ select * from fpqactiviti.act_ru_identitylink;
 select * from fpqactiviti.act_ru_job;
 select * from fpqactiviti.act_ru_task;
 select * from fpqactiviti.act_ru_variable;
+
+#查询25张表的数据量，在information_schema数据库下执行
+select tbs.TABLE_NAME,tbs.TABLE_ROWS from information_schema.`TABLES` tbs where tbs.TABLE_SCHEMA = 'fpqactiviti';

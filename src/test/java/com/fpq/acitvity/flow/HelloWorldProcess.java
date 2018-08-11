@@ -36,9 +36,9 @@ class HelloWorldProcess {
 	public void deploy() {
 		Deployment deployment = processEngine.getRepositoryService() //获取部署相关service
 		.createDeployment() //创建部署
-		.addClasspathResource("diagrams/activiti_applyLeave.bpmn") //加载工作流资源文件
-		.addClasspathResource("diagrams/activiti_applyLeave.png") //加载工作流资源文件
-		.name("请假审批工作流") //设置工作流程的名称
+		.addClasspathResource("diagrams/FeeExpensesReimbursement.bpmn") //加载工作流资源文件
+		.addClasspathResource("diagrams/FeeExpensesReimbursement.png") //加载工作流资源文件
+		.name("费用报销工作流") //设置工作流程的名称
 		.deploy();//部署
 		System.out.println("流程部署ID:"+deployment.getId()); 
 		System.out.println("流程部署Name:"+deployment.getName());

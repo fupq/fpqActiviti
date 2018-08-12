@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
+  <process id="studentApplyLeave_gateway_parallel" name="学生请假电子流_并行网关" isExecutable="true">
+    <startEvent id="startevent" name="开始节点"></startEvent>
+    <userTask id="usertask_applyLeave" name="学生请假申请" activiti:assignee="student"></userTask>
+    <userTask id="usertask_monitorApprove" name="班长审批" activiti:assignee="monitor"></userTask>
+    <userTask id="usertask_teacherApprove" name="老师审批" activiti:assignee="teacher"></userTask>
+    <endEvent id="endevent" name="结束节点"></endEvent>
+    <sequenceFlow id="flow1" sourceRef="startevent" targetRef="usertask_applyLeave"></sequenceFlow>
+    <userTask id="usertask_principal" name="校长审批" activiti:assignee="principal"></userTask>
+    <parallelGateway id="parallelgateway1" name="并行网关-开始"></parallelGateway>
+    <parallelGateway id="parallelgateway2" name="并行网关-结束"></parallelGateway>
+    <sequenceFlow id="flow2" sourceRef="usertask_applyLeave" targetRef="parallelgateway1"></sequenceFlow>
+    <sequenceFlow id="flow3" sourceRef="parallelgateway1" targetRef="usertask_monitorApprove"></sequenceFlow>
+    <sequenceFlow id="flow4" sourceRef="parallelgateway1" targetRef="usertask_teacherApprove"></sequenceFlow>
+    <sequenceFlow id="flow5" sourceRef="usertask_monitorApprove" targetRef="parallelgateway2"></sequenceFlow>
+    <sequenceFlow id="flow6" sourceRef="usertask_teacherApprove" targetRef="parallelgateway2"></sequenceFlow>
+    <sequenceFlow id="flow7" sourceRef="parallelgateway2" targetRef="usertask_principal"></sequenceFlow>
+    <sequenceFlow id="flow8" sourceRef="usertask_principal" targetRef="endevent"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_studentApplyLeave_gateway_parallel">
+    <bpmndi:BPMNPlane bpmnElement="studentApplyLeave_gateway_parallel" id="BPMNPlane_studentApplyLeave_gateway_parallel">
+      <bpmndi:BPMNShape bpmnElement="startevent" id="BPMNShape_startevent">
+        <omgdc:Bounds height="35.0" width="35.0" x="240.0" y="10.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask_applyLeave" id="BPMNShape_usertask_applyLeave">
+        <omgdc:Bounds height="55.0" width="105.0" x="205.0" y="80.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask_monitorApprove" id="BPMNShape_usertask_monitorApprove">
+        <omgdc:Bounds height="55.0" width="105.0" x="70.0" y="250.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask_teacherApprove" id="BPMNShape_usertask_teacherApprove">
+        <omgdc:Bounds height="55.0" width="105.0" x="355.0" y="250.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent" id="BPMNShape_endevent">
+        <omgdc:Bounds height="35.0" width="35.0" x="240.0" y="540.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask_principal" id="BPMNShape_usertask_principal">
+        <omgdc:Bounds height="55.0" width="105.0" x="205.0" y="450.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="parallelgateway1" id="BPMNShape_parallelgateway1">
+        <omgdc:Bounds height="40.0" width="40.0" x="237.0" y="180.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="parallelgateway2" id="BPMNShape_parallelgateway2">
+        <omgdc:Bounds height="40.0" width="40.0" x="237.0" y="360.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="257.0" y="45.0"></omgdi:waypoint>
+        <omgdi:waypoint x="257.0" y="80.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="257.0" y="135.0"></omgdi:waypoint>
+        <omgdi:waypoint x="257.0" y="180.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="257.0" y="220.0"></omgdi:waypoint>
+        <omgdi:waypoint x="122.0" y="250.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+        <omgdi:waypoint x="257.0" y="220.0"></omgdi:waypoint>
+        <omgdi:waypoint x="407.0" y="250.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
+        <omgdi:waypoint x="122.0" y="305.0"></omgdi:waypoint>
+        <omgdi:waypoint x="257.0" y="360.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
+        <omgdi:waypoint x="407.0" y="305.0"></omgdi:waypoint>
+        <omgdi:waypoint x="257.0" y="360.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow7" id="BPMNEdge_flow7">
+        <omgdi:waypoint x="257.0" y="400.0"></omgdi:waypoint>
+        <omgdi:waypoint x="257.0" y="450.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow8" id="BPMNEdge_flow8">
+        <omgdi:waypoint x="257.0" y="505.0"></omgdi:waypoint>
+        <omgdi:waypoint x="257.0" y="540.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

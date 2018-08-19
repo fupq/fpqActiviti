@@ -36,14 +36,18 @@ class StudentApplyLeaveProcess {
 	 */
 	@Test
 	public void deployStudentLeaveApplyProcess() {
-		Deployment deployment = processEngine.getRepositoryService() //获取部署相关service
-		.createDeployment() //创建部署
-		.addClasspathResource("diagrams/StudentApplyLeave.bpmn") //加载工作流资源文件
-		.addClasspathResource("diagrams/StudentApplyLeave.png") //加载工作流资源文件
-		.name("学生请假电子流") //设置工作流程的名称
-		.deploy();//部署
-		System.out.println("流程部署ID:"+deployment.getId()); 
-		System.out.println("流程部署Name:"+deployment.getName());
+		try {
+			Deployment deployment = processEngine.getRepositoryService() //获取部署相关service
+			.createDeployment() //创建部署
+			.addClasspathResource("diagrams/StudentApplyLeave.bpmn") //加载工作流资源文件
+			.addClasspathResource("diagrams/StudentApplyLeave.png") //加载工作流资源文件
+			.name("学生请假电子流") //设置工作流程的名称
+			.deploy();//部署
+			System.out.println("流程部署ID:"+deployment.getId()); 
+			System.out.println("流程部署Name:"+deployment.getName());
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	/**
